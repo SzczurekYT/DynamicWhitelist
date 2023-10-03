@@ -1,0 +1,5 @@
+name: DynamicWhitelist
+version: '${version}'
+main: yt.szczurek.dynamicwhitelist.impl.DynamicWhitelistPlugin
+api-version: '1.18'
+authors: [Burzowy_Szczurek]
