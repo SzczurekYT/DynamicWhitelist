@@ -2,6 +2,7 @@ package yt.szczurek.dynamicwhitelist.impl;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -35,6 +36,7 @@ public final class DynamicWhitelistPlugin extends JavaPlugin implements EventLis
     public void onPlayerJoin(PlayerJoinEvent joinEvent) {
         Player player = joinEvent.getPlayer();
         WhitelistCheckEvent event = new WhitelistCheckEvent(player, defaultKickMessage);
+        Bukkit.getPluginManager().callEvent(event);
         if (!event.isAllowed()) {
             joinEvent.joinMessage(Component.empty());
             player.kick(event.getKickMessage());
