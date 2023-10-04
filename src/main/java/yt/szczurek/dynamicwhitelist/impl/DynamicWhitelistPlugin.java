@@ -25,6 +25,7 @@ public final class DynamicWhitelistPlugin extends JavaPlugin implements EventLis
             kickStr = "Please set defaultKickMessage in settings!";
         }
         defaultKickMessage = MiniMessage.miniMessage().deserialize(kickStr);
+        getServer().getPluginManager().registerEvents(this, this);
     }
 
     @Override
