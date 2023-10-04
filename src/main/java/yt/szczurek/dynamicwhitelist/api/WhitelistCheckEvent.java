@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("unused")
 public class WhitelistCheckEvent extends Event {
 
-    private static final HandlerList HANDLER_LIST = new HandlerList();
+    private static final HandlerList HANDLERS = new HandlerList();
     private boolean allowed;
     private Component kickMessage;
     private final Player player;
@@ -45,8 +45,12 @@ public class WhitelistCheckEvent extends Event {
         this.kickMessage = MiniMessage.miniMessage().deserialize(kickMessage);
     }
 
+    public static HandlerList getHandlerList() {
+        return HANDLERS;
+    }
+
     @Override
     public @NotNull HandlerList getHandlers() {
-        return HANDLER_LIST;
+        return HANDLERS;
     }
 }
